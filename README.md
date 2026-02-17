@@ -1,5 +1,7 @@
 # Ganaderia Catorce — Brand Assets
 
+[![Identidad de Marca](https://img.shields.io/badge/Ver_Identidad_de_Marca-D4231A?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHRleHQgeD0iMTYiIHk9IjIyLjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iODAwIiBmb250LXNpemU9IjE4IiBmaWxsPSJ3aGl0ZSI+MTQ8L3RleHQ+PC9zdmc+&logoColor=white)](https://dorianguzman.github.io/ganaderia-catorce-assets/)
+
 Single source of truth for the Ganaderia Catorce logo and brand mark.
 
 ## Logo Structure
