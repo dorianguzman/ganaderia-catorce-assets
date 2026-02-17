@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ganaderia Catorce — Identidad de Marca</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Josefin+Sans:ital,wght@0,300;1,300&family=Orbitron:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red: #D4231A;
+            --black: #0A0A0A;
+            --white: #F5F5F5;
+            --gray-light: #E0E0E0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #1a1a1a;
+            color: var(--white);
+            padding: 3rem;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 0.85rem;
+            opacity: 0.5;
+            margin-bottom: 3rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .variant {
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .variant__label {
+            padding: 1rem 1.5rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.4;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .variant__canvas {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+            min-height: 300px;
+        }
+
+        .variant__canvas--dark { background: var(--black); }
+        .variant__canvas--light { background: var(--white); }
+        .variant__canvas--red { background: var(--red); }
+
+        /* ===========================
+           LOGO COMPONENT
+           =========================== */
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            text-align: center;
+        }
+
+        .logo__ganaderia {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 300;
+            font-style: italic;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+        }
+
+        .logo__icon {
+            display: block;
+        }
+
+        .logo__icon img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .logo__catorce {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .logo__est {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            letter-spacing: 0.25em;
+        }
+
+        /* --- SIZE: Full (hero, splash) --- */
+        .logo--full .logo__ganaderia { font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .logo--full .logo__icon { width: 220px; margin: 0.25rem 0; }
+        .logo--full .logo__catorce { font-size: 2.8rem; margin-top: 0.25rem; }
+        .logo--full .logo__est { font-size: 0.7rem; margin-top: 0.4rem; }
+
+        /* --- SIZE: Medium (footer, about) --- */
+        .logo--medium .logo__ganaderia { font-size: 0.7rem; margin-bottom: 0.3rem; }
+        .logo--medium .logo__icon { width: 120px; margin: 0.15rem 0; }
+        .logo--medium .logo__catorce { font-size: 1.5rem; margin-top: 0.15rem; }
+        .logo--medium .logo__est { font-size: 0.5rem; margin-top: 0.3rem; }
+
+        /* --- SIZE: Nav (compact) --- */
+        .logo--nav {
+            flex-direction: row;
+            gap: 0.6rem;
+        }
+        .logo--nav .logo__ganaderia { display: none; }
+        .logo--nav .logo__icon { width: 44px; }
+        .logo--nav .logo__catorce { font-size: 1.1rem; letter-spacing: 0.08em; }
+        .logo--nav .logo__est { display: none; }
+
+        /* --- COLOR: On dark --- */
+        .logo--on-dark .logo__ganaderia { color: var(--white); }
+        .logo--on-dark .logo__catorce { color: var(--white); }
+        .logo--on-dark .logo__est { color: rgba(245, 245, 245, 0.4); }
+
+        /* --- COLOR: On light --- */
+        .logo--on-light .logo__ganaderia { color: var(--black); }
+        .logo--on-light .logo__catorce { color: var(--red); }
+        .logo--on-light .logo__est { color: rgba(10, 10, 10, 0.4); }
+
+        /* --- COLOR: On red --- */
+        .logo--on-red .logo__ganaderia { color: var(--white); }
+        .logo--on-red .logo__catorce { color: var(--white); }
+        .logo--on-red .logo__est { color: rgba(255, 255, 255, 0.5); }
+        .logo--on-red .logo__icon { filter: brightness(0) invert(1); }
+
+        /* --- COLOR: Watermark --- */
+        .logo--watermark { opacity: 0.08; }
+
+        /* --- Horizontal variant (alternative nav) --- */
+        .logo--horizontal {
+            flex-direction: row;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .logo--horizontal .logo__icon { width: 44px; }
+        .logo--horizontal .logo__text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .logo--horizontal .logo__ganaderia {
+            font-size: 0.5rem;
+            letter-spacing: 0.2em;
+            margin-bottom: 0;
+        }
+        .logo--horizontal .logo__catorce {
+            font-size: 1.2rem;
+            margin-top: 0;
+        }
+        .logo--horizontal .logo__est { display: none; }
+
+        /* ===========================
+           BRAND GUIDE STYLES
+           =========================== */
+        .brand-guide {
+            margin-top: 4rem;
+        }
+
+        .brand-divider {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .brand-divider__line {
+            flex: 1;
+            height: 1px;
+            background: var(--red);
+            opacity: 0.3;
+        }
+
+        .brand-divider__label {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--red);
+        }
+
+        .brand-section {
+            margin-bottom: 5rem;
+            position: relative;
+        }
+
+        .brand-section__num {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 800;
+            font-size: 5rem;
+            color: var(--white);
+            opacity: 0.04;
+            position: absolute;
+            top: -1.5rem;
+            left: -0.5rem;
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .brand-section__title {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            letter-spacing: 0.08em;
+            margin-bottom: 2rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--red);
+        }
+
+        .brand-section__content {
+            padding-left: 1rem;
+        }
+
+        /* Brand Story */
+        .brand-story {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+
+        .brand-story__block h3 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--red);
+            margin-bottom: 0.75rem;
+        }
+
+        .brand-story__block p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            opacity: 0.7;
+        }
+
+        .brand-story__tagline {
+            font-family: 'Josefin Sans', sans-serif !important;
+            font-weight: 300 !important;
+            font-style: italic;
+            font-size: 2rem !important;
+            opacity: 1 !important;
+            color: var(--red);
+        }
+
+        .brand-values {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .brand-value {
+            display: flex;
+            gap: 1rem;
+            align-items: baseline;
+        }
+
+        .brand-value__label {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 0.06em;
+            color: var(--white);
+            min-width: 100px;
+        }
+
+        .brand-value__desc {
+            font-size: 0.85rem;
+            opacity: 0.5;
+        }
+
+        /* Subsections */
+        .brand-subsection {
+            margin-bottom: 2.5rem;
+        }
+
+        .brand-subsection__title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--red);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Color Swatches */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .color-swatch {
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .color-swatch__fill {
+            height: 120px;
+        }
+
+        .color-swatch--small .color-swatch__fill {
+            height: 72px;
+        }
+
+        .color-swatch__info {
+            padding: 1rem 1.25rem;
+        }
+
+        .color-swatch__name {
+            display: block;
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .color-swatch__role {
+            display: block;
+            font-size: 0.8rem;
+            opacity: 0.5;
+            margin-bottom: 0.75rem;
+        }
+
+        .color-swatch__codes {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .color-swatch__codes code {
+            font-size: 0.7rem;
+            background: rgba(255,255,255,0.06);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            opacity: 0.5;
+        }
+
+        /* Color Ratio */
+        .color-ratio__bar {
+            display: flex;
+            height: 48px;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .color-ratio__segment {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .color-ratio__note {
+            font-size: 0.85rem;
+            opacity: 0.5;
+            line-height: 1.6;
+        }
+
+        /* Typography Specimens */
+        .type-specimens {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .type-specimen {
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+            padding: 2rem;
+        }
+
+        .type-specimen__header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+        }
+
+        .type-specimen__name {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.06em;
+        }
+
+        .type-specimen__role {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.4;
+        }
+
+        .type-specimen__weights {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .type-specimen__tag {
+            font-size: 0.65rem;
+            padding: 0.2rem 0.6rem;
+            background: rgba(255,255,255,0.06);
+            border-radius: 3px;
+            opacity: 0.5;
+        }
+
+        .type-specimen__preview {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            margin-bottom: 1rem;
+        }
+
+        .type-specimen__usage {
+            font-size: 0.8rem;
+            opacity: 0.45;
+            line-height: 1.6;
+        }
+
+        /* Type Scale */
+        .type-hierarchy {
+            margin-top: 1rem;
+        }
+
+        .type-scale {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .type-scale__row {
+            display: grid;
+            grid-template-columns: 120px 1fr auto;
+            align-items: baseline;
+            gap: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .type-scale__label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.35;
+            padding-top: 0.5rem;
+        }
+
+        .type-scale__sample {
+            min-width: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .type-scale__spec {
+            font-size: 0.65rem;
+            opacity: 0.3;
+            white-space: nowrap;
+            padding-top: 0.5rem;
+        }
+
+        /* Logo Anatomy */
+        .anatomy {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .anatomy__visual {
+            background: var(--black);
+            border-radius: 8px;
+            padding: 3rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .anatomy__labeled {
+            position: relative;
+        }
+
+        .anatomy__labeled::after {
+            content: attr(data-label);
+            position: absolute;
+            right: -1rem;
+            top: 50%;
+            transform: translate(100%, -50%);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6rem;
+            font-style: normal;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            opacity: 0.3;
+            white-space: nowrap;
+            padding-left: 0.75rem;
+            border-left: 1px solid rgba(245,245,245,0.15);
+        }
+
+        .anatomy__rules h3 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--red);
+            margin-bottom: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .anatomy__rules h3:first-child {
+            margin-top: 0;
+        }
+
+        .anatomy__rules ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .anatomy__rules li {
+            font-size: 0.85rem;
+            opacity: 0.6;
+            line-height: 1.5;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .anatomy__rules li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.55rem;
+            width: 4px;
+            height: 4px;
+            background: var(--red);
+            border-radius: 50%;
+        }
+
+        /* Photography Direction */
+        .photo-direction__principles {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .photo-principle h3 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--red);
+            margin-bottom: 0.75rem;
+        }
+
+        .photo-principle p {
+            font-size: 0.85rem;
+            opacity: 0.6;
+            line-height: 1.7;
+        }
+
+        .photo-donts h3 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--red);
+            margin-bottom: 0.75rem;
+        }
+
+        .photo-donts ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .photo-donts li {
+            font-size: 0.85rem;
+            opacity: 0.5;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .photo-donts li::before {
+            content: '✕';
+            position: absolute;
+            left: 0;
+            color: var(--red);
+            font-size: 0.7rem;
+        }
+
+        /* 14 Motif */
+        .motif {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .motif__visual {
+            background: var(--black);
+            border-radius: 8px;
+            padding: 2rem 3rem;
+        }
+
+        .motif__number {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 800;
+            font-size: 6rem;
+            color: var(--red);
+            letter-spacing: -0.02em;
+        }
+
+        .motif__text p {
+            font-size: 0.9rem;
+            opacity: 0.6;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .motif__text ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .motif__text li {
+            font-size: 0.85rem;
+            opacity: 0.6;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .motif__text li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.55rem;
+            width: 4px;
+            height: 4px;
+            background: var(--red);
+            border-radius: 50%;
+        }
+
+        /* Design Principles */
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .principle {
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 8px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .principle__num {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 800;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            opacity: 0.2;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .principle h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.75rem;
+        }
+
+        .principle p {
+            font-size: 0.8rem;
+            opacity: 0.5;
+            line-height: 1.6;
+        }
+
+        /* ===========================
+           RESPONSIVE
+           =========================== */
+        @media (max-width: 1024px) {
+            body { padding: 2rem; }
+
+            .brand-story { grid-template-columns: 1fr; gap: 2rem; }
+            .photo-direction__principles { grid-template-columns: 1fr; }
+            .principles-grid { grid-template-columns: 1fr 1fr; }
+            .anatomy { grid-template-columns: 1fr; }
+            .motif { grid-template-columns: 1fr; }
+            .motif__visual { text-align: center; }
+
+            .type-scale__row {
+                grid-template-columns: 1fr;
+                gap: 0.25rem;
+            }
+
+            .type-scale__label { padding-top: 0; }
+            .type-scale__spec { padding-top: 0; }
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 1.5rem; }
+
+            .grid { grid-template-columns: 1fr; }
+
+            .brand-section__num { font-size: 3.5rem; }
+            .principles-grid { grid-template-columns: 1fr; }
+            .color-grid { grid-template-columns: 1fr; }
+
+            .anatomy__labeled::after { display: none; }
+            .anatomy__visual { padding: 2rem 1.5rem; }
+
+            .logo--full .logo__icon { width: 160px; }
+            .logo--full .logo__catorce { font-size: 2rem; }
+            .logo--full .logo__ganaderia { font-size: 0.85rem; }
+
+            .type-specimen__preview span { white-space: normal; }
+            .type-scale__sample { white-space: normal; font-size: 1rem !important; }
+
+            .motif__number { font-size: 4rem; }
+
+            .brand-divider { gap: 1rem; }
+            .brand-divider__label { font-size: 0.7rem; letter-spacing: 0.12em; }
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 1rem; }
+
+            .variant__canvas { padding: 2rem 1.5rem; min-height: 220px; }
+
+            .logo--full .logo__icon { width: 130px; }
+            .logo--full .logo__catorce { font-size: 1.6rem; }
+            .logo--full .logo__ganaderia { font-size: 0.75rem; }
+            .logo--full .logo__est { font-size: 0.55rem; }
+
+            .logo--medium .logo__icon { width: 90px; }
+            .logo--medium .logo__catorce { font-size: 1.1rem; }
+
+            .type-specimen { padding: 1.25rem; }
+            .type-specimen__preview span:first-child { font-size: 2rem !important; }
+            .principle { padding: 1.25rem; }
+
+            .color-ratio__segment span { font-size: 0.6rem; }
+        }
+
+        /* Export hint */
+        .export-hint {
+            margin-top: 3rem;
+            padding: 1.5rem;
+            border: 1px dashed rgba(255,255,255,0.15);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            opacity: 0.6;
+            line-height: 1.6;
+        }
+
+        .export-hint code {
+            background: rgba(255,255,255,0.1);
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>GANADERIA CATORCE</h1>
+    <p class="subtitle">Identidad de Marca — Todas las Variantes</p>
+
+    <div class="grid">
+
+        <!-- FULL — On Dark -->
+        <div class="variant">
+            <div class="variant__label">Completo — Fondo Oscuro</div>
+            <div class="variant__canvas variant__canvas--dark">
+                <div class="logo logo--full logo--on-dark">
+                    <span class="logo__ganaderia">Ganaderia</span>
+                    <div class="logo__icon"><img src="cow+pig.png" alt="Ganaderia Catorce"></div>
+                    <span class="logo__catorce">CATORCE</span>
+                    <span class="logo__est">EST. 2024</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- FULL — On Light -->
+        <div class="variant">
+            <div class="variant__label">Completo — Fondo Claro</div>
+            <div class="variant__canvas variant__canvas--light">
+                <div class="logo logo--full logo--on-light">
+                    <span class="logo__ganaderia">Ganaderia</span>
+                    <div class="logo__icon"><img src="cow+pig.png" alt="Ganaderia Catorce"></div>
+                    <span class="logo__catorce">CATORCE</span>
+                    <span class="logo__est">EST. 2024</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- FULL — On Red -->
+        <div class="variant">
+            <div class="variant__label">Completo — Fondo Rojo</div>
+            <div class="variant__canvas variant__canvas--red">
+                <div class="logo logo--full logo--on-red">
+                    <span class="logo__ganaderia">Ganaderia</span>
+                    <div class="logo__icon"><img src="cow+pig.png" alt="Ganaderia Catorce"></div>
+                    <span class="logo__catorce">CATORCE</span>
+                    <span class="logo__est">EST. 2024</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- FULL — Watermark -->
+        <div class="variant">
+            <div class="variant__label">Completo — Marca de Agua (fondo oscuro)</div>
+            <div class="variant__canvas variant__canvas--dark">
+                <div class="logo logo--full logo--on-dark logo--watermark">
+                    <span class="logo__ganaderia">Ganaderia</span>
+                    <div class="logo__icon"><img src="cow+pig.png" alt="Ganaderia Catorce"></div>
+                    <span class="logo__catorce">CATORCE</span>
+                    <span class="logo__est">EST. 2024</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- FULL — Watermark on Light -->
+        <div class="variant">
+            <div class="variant__label">Completo — Marca de Agua (fondo claro)</div>
+            <div class="variant__canvas variant__canvas--light">
+                <div class="logo logo--full logo--on-light logo--watermark">
+                    <span class="logo__ganaderia">Ganaderia</span>
+                    <div class="logo__icon"><img src="cow+pig.png" alt="Ganaderia Catorce"></div>
+                    <span class="logo__catorce">CATORCE</span>
+                    <span class="logo__est">EST. 2024</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- FULL — Watermark on Red -->
+        <div class="variant">
+            <div class="variant__label">Completo — Marca de Agua (fondo rojo)</div>
+            <div class="variant__canvas variant__canvas--red">
+                <div class="logo logo--full logo--on-red logo--watermark">
+                    <span class="logo__ganaderia">Ganaderia</span>
+                    <div class="logo__icon"><img src="cow+pig.png" alt="Ganaderia Catorce"></div>
+                    <span class="logo__catorce">CATORCE</span>
+                    <span class="logo__est">EST. 2024</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- MEDIUM — On Dark -->
+        <div class="variant">
+            <div class="variant__label">Mediano — Fondo Oscuro (footer, secciones)</div>
+            <div class="variant__canvas variant__canvas--dark">
+                <div class="logo logo--medium logo--on-dark">
+                    <span class="logo__ganaderia">Ganaderia</span>
+                    <div class="logo__icon"><img src="cow+pig.png" alt="Ganaderia Catorce"></div>
+                    <span class="logo__catorce">CATORCE</span>
+                    <span class="logo__est">EST. 2024</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- MEDIUM — On Light -->
+        <div class="variant">
+            <div class="variant__label">Mediano — Fondo Claro</div>
+            <div class="variant__canvas variant__canvas--light">
+                <div class="logo logo--medium logo--on-light">
+                    <span class="logo__ganaderia">Ganaderia</span>
+                    <div class="logo__icon"><img src="cow+pig.png" alt="Ganaderia Catorce"></div>
+                    <span class="logo__catorce">CATORCE</span>
+                    <span class="logo__est">EST. 2024</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- MEDIUM — On Red -->
+        <div class="variant">
+            <div class="variant__label">Mediano — Fondo Rojo</div>
+            <div class="variant__canvas variant__canvas--red">
+                <div class="logo logo--medium logo--on-red">
+                    <span class="logo__ganaderia">Ganaderia</span>
+                    <div class="logo__icon"><img src="cow+pig.png" alt="Ganaderia Catorce"></div>
+                    <span class="logo__catorce">CATORCE</span>
+                    <span class="logo__est">EST. 2024</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- NAV — On Dark -->
+        <div class="variant">
+            <div class="variant__label">Nav — Fondo Oscuro (compacto, icono + nombre)</div>
+            <div class="variant__canvas variant__canvas--dark">
+                <div class="logo logo--nav logo--on-dark">
+                    <div class="logo__icon"><img src="cow+pig.png" alt="Ganaderia Catorce"></div>
+                    <span class="logo__catorce">CATORCE</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- NAV — On Red -->
+        <div class="variant">
+            <div class="variant__label">Nav — Fondo Rojo</div>
+            <div class="variant__canvas variant__canvas--red">
+                <div class="logo logo--nav logo--on-red">
+                    <div class="logo__icon"><img src="cow+pig.png" alt="Ganaderia Catorce"></div>
+                    <span class="logo__catorce">CATORCE</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- HORIZONTAL — On Dark -->
+        <div class="variant">
+            <div class="variant__label">Horizontal — Fondo Oscuro (nav alternativo)</div>
+            <div class="variant__canvas variant__canvas--dark">
+                <div class="logo logo--horizontal logo--on-dark">
+                    <div class="logo__icon"><img src="cow+pig.png" alt="Ganaderia Catorce"></div>
+                    <div class="logo__text">
+                        <span class="logo__ganaderia">Ganaderia</span>
+                        <span class="logo__catorce">CATORCE</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="export-hint">
+        <strong>Exportar:</strong> Click derecho en cualquier variante → Inspeccionar → seleccionar el elemento <code>.logo</code> → captura de nodo. O usa las clases CSS directamente en tu proyecto: <code>.logo--full</code>, <code>.logo--medium</code>, <code>.logo--nav</code>, <code>.logo--horizontal</code> combinadas con <code>.logo--on-dark</code>, <code>.logo--on-light</code>, <code>.logo--on-red</code>.
+    </div>
+
+    <!-- ============================================ -->
+    <!-- BRAND IDENTITY GUIDE                         -->
+    <!-- ============================================ -->
+    <div class="brand-guide">
+
+        <div class="brand-divider">
+            <span class="brand-divider__line"></span>
+            <span class="brand-divider__label">Identidad de Marca</span>
+            <span class="brand-divider__line"></span>
+        </div>
+
+        <!-- BRAND STORY -->
+        <section class="brand-section">
+            <span class="brand-section__num">01</span>
+            <h2 class="brand-section__title">Esencia de Marca</h2>
+            <div class="brand-section__content">
+                <div class="brand-story">
+                    <div class="brand-story__block">
+                        <h3>Vision</h3>
+                        <p>Ser el proveedor de carne premium mas confiable en Aguascalientes, reconocido por una calidad sin compromisos y un profundo respeto por la tradicion ganadera.</p>
+                    </div>
+                    <div class="brand-story__block">
+                        <h3>Tagline</h3>
+                        <p class="brand-story__tagline">Fuego y Tradicion</p>
+                    </div>
+                    <div class="brand-story__block">
+                        <h3>Voz de Marca</h3>
+                        <p>Segura, directa, premium. No vendemos carne — seleccionamos lo extraordinario. El tono es audaz sin ser arrogante, calido sin ser casual. Cada palabra debe sentirse tallada, no escrita.</p>
+                    </div>
+                    <div class="brand-story__block">
+                        <h3>Valores</h3>
+                        <div class="brand-values">
+                            <div class="brand-value">
+                                <span class="brand-value__label">Calidad</span>
+                                <span class="brand-value__desc">Solo el 20% pasa nuestro estandar</span>
+                            </div>
+                            <div class="brand-value">
+                                <span class="brand-value__label">Tradicion</span>
+                                <span class="brand-value__desc">Arraigados en la herencia ganadera mexicana</span>
+                            </div>
+                            <div class="brand-value">
+                                <span class="brand-value__label">Confianza</span>
+                                <span class="brand-value__desc">La consistencia que tu negocio necesita</span>
+                            </div>
+                            <div class="brand-value">
+                                <span class="brand-value__label">Fuego</span>
+                                <span class="brand-value__desc">Pasion en cada paso del proceso</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COLOR PALETTE -->
+        <section class="brand-section">
+            <span class="brand-section__num">02</span>
+            <h2 class="brand-section__title">Paleta de Colores</h2>
+            <div class="brand-section__content">
+                <div class="brand-subsection">
+                    <h3 class="brand-subsection__title">Primarios</h3>
+                    <div class="color-grid">
+                        <div class="color-swatch">
+                            <div class="color-swatch__fill" style="background: #D4231A;"></div>
+                            <div class="color-swatch__info">
+                                <span class="color-swatch__name">Rojo Catorce</span>
+                                <span class="color-swatch__role">Color primario de marca. Poder, fuego, pasion.</span>
+                                <div class="color-swatch__codes">
+                                    <code>HEX #D4231A</code>
+                                    <code>RGB 212, 35, 26</code>
+                                    <code>HSL 3, 78%, 47%</code>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch__fill" style="background: #0A0A0A;"></div>
+                            <div class="color-swatch__info">
+                                <span class="color-swatch__name">Negro Humo</span>
+                                <span class="color-swatch__role">Fondo principal. Profundidad, premium, cinematico.</span>
+                                <div class="color-swatch__codes">
+                                    <code>HEX #0A0A0A</code>
+                                    <code>RGB 10, 10, 10</code>
+                                    <code>HSL 0, 0%, 4%</code>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch__fill" style="background: #F5F5F5;"></div>
+                            <div class="color-swatch__info">
+                                <span class="color-swatch__name">Blanco Hueso</span>
+                                <span class="color-swatch__role">Texto principal sobre oscuro. Limpio, definido.</span>
+                                <div class="color-swatch__codes">
+                                    <code>HEX #F5F5F5</code>
+                                    <code>RGB 245, 245, 245</code>
+                                    <code>HSL 0, 0%, 96%</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="brand-subsection">
+                    <h3 class="brand-subsection__title">Secundarios</h3>
+                    <div class="color-grid">
+                        <div class="color-swatch color-swatch--small">
+                            <div class="color-swatch__fill" style="background: #A81B14;"></div>
+                            <div class="color-swatch__info">
+                                <span class="color-swatch__name">Rojo Brasa</span>
+                                <span class="color-swatch__role">Estados hover, botones presionados</span>
+                                <div class="color-swatch__codes"><code>#A81B14</code></div>
+                            </div>
+                        </div>
+                        <div class="color-swatch color-swatch--small">
+                            <div class="color-swatch__fill" style="background: #141414;"></div>
+                            <div class="color-swatch__info">
+                                <span class="color-swatch__name">Negro Carbon</span>
+                                <span class="color-swatch__role">Fondos de cards, superficies secundarias</span>
+                                <div class="color-swatch__codes"><code>#141414</code></div>
+                            </div>
+                        </div>
+                        <div class="color-swatch color-swatch--small">
+                            <div class="color-swatch__fill" style="background: #1A1A1A;"></div>
+                            <div class="color-swatch__info">
+                                <span class="color-swatch__name">Negro Piedra</span>
+                                <span class="color-swatch__role">Superficies elevadas, cards</span>
+                                <div class="color-swatch__codes"><code>#1A1A1A</code></div>
+                            </div>
+                        </div>
+                        <div class="color-swatch color-swatch--small">
+                            <div class="color-swatch__fill" style="background: rgba(212, 35, 26, 0.4); border: 1px solid rgba(212,35,26,0.3);"></div>
+                            <div class="color-swatch__info">
+                                <span class="color-swatch__name">Rojo Glow</span>
+                                <span class="color-swatch__role">Sombras, glows, efectos ambientales</span>
+                                <div class="color-swatch__codes"><code>rgba(212, 35, 26, 0.4)</code></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="brand-subsection">
+                    <h3 class="brand-subsection__title">Proporcion de Uso</h3>
+                    <div class="color-ratio">
+                        <div class="color-ratio__bar">
+                            <div class="color-ratio__segment" style="background: #0A0A0A; flex: 70;"><span>70%</span></div>
+                            <div class="color-ratio__segment" style="background: #F5F5F5; color: #0A0A0A; flex: 15;"><span>15%</span></div>
+                            <div class="color-ratio__segment" style="background: #D4231A; flex: 15;"><span>15%</span></div>
+                        </div>
+                        <p class="color-ratio__note">La oscuridad domina. El rojo se reserva para momentos de impacto — nunca en exceso. El blanco respira entre la oscuridad.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TYPOGRAPHY -->
+        <section class="brand-section">
+            <span class="brand-section__num">03</span>
+            <h2 class="brand-section__title">Tipografia</h2>
+            <div class="brand-section__content">
+                <div class="type-specimens">
+                    <div class="type-specimen">
+                        <div class="type-specimen__header">
+                            <span class="type-specimen__name">Orbitron</span>
+                            <span class="type-specimen__role">Display / Titulos</span>
+                        </div>
+                        <div class="type-specimen__weights">
+                            <span class="type-specimen__tag">700</span>
+                            <span class="type-specimen__tag">800</span>
+                            <span class="type-specimen__tag">Google Fonts</span>
+                        </div>
+                        <div class="type-specimen__preview" style="font-family: 'Orbitron', sans-serif;">
+                            <span style="font-weight: 800; font-size: 3.5rem; letter-spacing: 0.08em;">CATORCE</span>
+                            <span style="font-weight: 700; font-size: 1.8rem; letter-spacing: 0.04em;">Arrachera Premium</span>
+                            <span style="font-weight: 700; font-size: 1rem; letter-spacing: 0.1em; opacity: 0.3;">01 02 03 04</span>
+                        </div>
+                        <p class="type-specimen__usage">Titulos hero, encabezados de seccion, wordmark "CATORCE", numeros de seccion, nombres de categorias. Siempre uppercase. Letter-spacing 0.04em–0.12em.</p>
+                    </div>
+
+                    <div class="type-specimen">
+                        <div class="type-specimen__header">
+                            <span class="type-specimen__name" style="font-family: 'Josefin Sans', sans-serif; font-weight: 300; font-style: italic;">Josefin Sans</span>
+                            <span class="type-specimen__role">Acento / Elegancia</span>
+                        </div>
+                        <div class="type-specimen__weights">
+                            <span class="type-specimen__tag">300</span>
+                            <span class="type-specimen__tag">300 Italic</span>
+                            <span class="type-specimen__tag">Google Fonts</span>
+                        </div>
+                        <div class="type-specimen__preview" style="font-family: 'Josefin Sans', sans-serif;">
+                            <span style="font-weight: 300; font-style: italic; font-size: 2.5rem; letter-spacing: 0.15em;">Ganaderia</span>
+                            <span style="font-weight: 300; font-style: italic; font-size: 1.4rem; letter-spacing: 0.1em;">Carne de calidad premium</span>
+                            <span style="font-weight: 300; font-size: 1.2rem; letter-spacing: 0.05em;">No vendemos carne. Seleccionamos lo extraordinario.</span>
+                        </div>
+                        <p class="type-specimen__usage">"Ganaderia" en el logo, subtitulo hero, titulares de statement, titulo de galeria, callouts elegantes. Principalmente italic. Letter-spacing 0.05em–0.15em.</p>
+                    </div>
+
+                    <div class="type-specimen">
+                        <div class="type-specimen__header">
+                            <span class="type-specimen__name" style="font-family: 'Inter', sans-serif; font-weight: 400;">Inter</span>
+                            <span class="type-specimen__role">Body / Interfaz</span>
+                        </div>
+                        <div class="type-specimen__weights">
+                            <span class="type-specimen__tag">300</span>
+                            <span class="type-specimen__tag">400</span>
+                            <span class="type-specimen__tag">500</span>
+                            <span class="type-specimen__tag">Google Fonts</span>
+                        </div>
+                        <div class="type-specimen__preview" style="font-family: 'Inter', sans-serif;">
+                            <span style="font-weight: 500; font-size: 1.1rem;">Proveedor de arrachera premium</span>
+                            <span style="font-weight: 400; font-size: 1rem; opacity: 0.7; line-height: 1.7;">Nuestra arrachera premium es el corte estrella de Ganaderia Catorce. Seleccionada de 100% res mexicana, cada pieza es cuidadosamente elegida por su marmoleo, textura y sabor excepcional.</span>
+                            <span style="font-weight: 300; font-size: 0.85rem; opacity: 0.5; letter-spacing: 0.08em; text-transform: uppercase;">EST. 2024 &nbsp;&middot;&nbsp; Aguascalientes, Mexico</span>
+                        </div>
+                        <p class="type-specimen__usage">Texto body (400), descripciones (300), links del nav (400/500), labels (500 uppercase), "EST. 2024" en el logo. La fuente de trabajo. Nunca arriba de 1.1rem.</p>
+                    </div>
+                </div>
+
+                <div class="type-hierarchy">
+                    <h3 class="brand-subsection__title">Jerarquia Tipografica</h3>
+                    <div class="type-scale">
+                        <div class="type-scale__row">
+                            <span class="type-scale__label">Titulo Hero</span>
+                            <span class="type-scale__sample" style="font-family: 'Orbitron'; font-weight: 800; font-size: 4rem; letter-spacing: 0.1em;">CATORCE</span>
+                            <span class="type-scale__spec">Orbitron 800 / 8–12vw / 0.1em</span>
+                        </div>
+                        <div class="type-scale__row">
+                            <span class="type-scale__label">Titulo Seccion</span>
+                            <span class="type-scale__sample" style="font-family: 'Orbitron'; font-weight: 700; font-size: 2.2rem; letter-spacing: 0.04em;">Nuestros Cortes</span>
+                            <span class="type-scale__spec">Orbitron 700 / 2–3.5rem / 0.04em</span>
+                        </div>
+                        <div class="type-scale__row">
+                            <span class="type-scale__label">Acento</span>
+                            <span class="type-scale__sample" style="font-family: 'Josefin Sans'; font-weight: 300; font-style: italic; font-size: 1.6rem; letter-spacing: 0.1em;">Carne de calidad premium</span>
+                            <span class="type-scale__spec">Josefin Sans 300i / 1–2rem / 0.1em</span>
+                        </div>
+                        <div class="type-scale__row">
+                            <span class="type-scale__label">Body</span>
+                            <span class="type-scale__sample" style="font-family: 'Inter'; font-weight: 400; font-size: 1rem; opacity: 0.7;">Seleccionada de 100% res mexicana, cada pieza es elegida por su marmoleo.</span>
+                            <span class="type-scale__spec">Inter 300–400 / 0.9–1rem / 1.7 line-height</span>
+                        </div>
+                        <div class="type-scale__row">
+                            <span class="type-scale__label">Caption</span><!-- kept in English, common in MX -->
+                            <span class="type-scale__sample" style="font-family: 'Inter'; font-weight: 500; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.5;">CORTE SELECTO &nbsp;&middot;&nbsp; MARINADA ARTESANAL &nbsp;&middot;&nbsp; 100% RES</span>
+                            <span class="type-scale__spec">Inter 500 / 0.75–0.85rem / uppercase / 0.08em</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LOGO ANATOMY -->
+        <section class="brand-section">
+            <span class="brand-section__num">04</span>
+            <h2 class="brand-section__title">Anatomia del Logo</h2>
+            <div class="brand-section__content">
+                <div class="anatomy">
+                    <div class="anatomy__visual">
+                        <div class="logo logo--full logo--on-dark">
+                            <span class="logo__ganaderia anatomy__labeled" data-label="Josefin Sans 300 Italic">Ganaderia</span>
+                            <div class="logo__icon anatomy__labeled" data-label="Line-art Icon"><img src="cow+pig.png" alt=""></div>
+                            <span class="logo__catorce anatomy__labeled" data-label="Orbitron 800">CATORCE</span>
+                            <span class="logo__est anatomy__labeled" data-label="Inter 400">EST. 2024</span>
+                        </div>
+                    </div>
+                    <div class="anatomy__rules">
+                        <h3>Reglas de Construccion</h3>
+                        <ul>
+                            <li>El icono (vaca + cerdo) siempre va centrado entre "Ganaderia" y "CATORCE"</li>
+                            <li>El color del icono siempre es <strong>#D4231A</strong> (Rojo Catorce), excepto sobre fondos rojos donde se invierte a blanco</li>
+                            <li>"CATORCE" siempre en uppercase, siempre en Orbitron</li>
+                            <li>"Ganaderia" siempre en italic, siempre en Josefin Sans</li>
+                            <li>Espacio libre minimo alrededor del logo: igual a la altura de la "C" en CATORCE</li>
+                            <li>Nunca estirar, rotar, agregar sombras o alterar las proporciones del icono</li>
+                            <li>Nunca colocar el logo sobre fondos con mucho detalle o bajo contraste sin un overlay</li>
+                        </ul>
+                        <h3>Tamanos Minimos</h3>
+                        <ul>
+                            <li>Logo completo: 120px de ancho minimo</li>
+                            <li>Variante nav: 100px de ancho minimo (icono + texto)</li>
+                            <li>Solo icono: 24px minimo</li>
+                            <li>Favicon: 16x16 usa el numeral "14", no el icono</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PHOTOGRAPHY -->
+        <section class="brand-section">
+            <span class="brand-section__num">05</span>
+            <h2 class="brand-section__title">Direccion Fotografica</h2>
+            <div class="brand-section__content">
+                <div class="photo-direction">
+                    <div class="photo-direction__principles">
+                        <div class="photo-principle">
+                            <h3>Atmosfera</h3>
+                            <p>Oscura, intensa, cinematica. Piensa en steakhouse de alto nivel combinado con fotografia documental. Los fondos siempre son oscuros — pizarra negra, madera oscura, superficies de carbon.</p>
+                        </div>
+                        <div class="photo-principle">
+                            <h3>Iluminacion</h3>
+                            <p>Iluminacion lateral dramatica con sombras profundas. Solo tonos calidos — ambar, naranja, rojos intensos. Nunca plana, nunca fluorescente. La luz debe sentirse como fuego.</p>
+                        </div>
+                        <div class="photo-principle">
+                            <h3>Sujetos</h3>
+                            <p>Cortes crudos mostrando marmoleo y textura. Carne a la parrilla con marcas de carbon y vapor. Manos trabajando — sazonando, rebanando, asando. El rancho al atardecer. Nunca stock, nunca esteril.</p>
+                        </div>
+                        <div class="photo-principle">
+                            <h3>Tratamiento de Color</h3>
+                            <p>Desaturada por default con rojos intensos y highlights calidos preservados. Saturacion completa en hover/focus en contextos digitales. Nunca tonos frios, nunca azulados.</p>
+                        </div>
+                    </div>
+                    <div class="photo-donts">
+                        <h3>Nunca</h3>
+                        <ul>
+                            <li>Fondos blancos o claros en fotografia de producto</li>
+                            <li>Tomas cenital flat-lay (demasiado casual)</li>
+                            <li>Fotos de stock con marcas de agua o aspecto generico</li>
+                            <li>Fotografia de comida brillante y uniformemente iluminada</li>
+                            <li>Texto sobre fotografia (usar gradient overlays en su lugar)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- THE 14 MOTIF -->
+        <section class="brand-section">
+            <span class="brand-section__num">06</span>
+            <h2 class="brand-section__title">El Motivo "14"</h2>
+            <div class="brand-section__content">
+                <div class="motif">
+                    <div class="motif__visual">
+                        <span class="motif__number">14</span>
+                    </div>
+                    <div class="motif__text">
+                        <p>El numero catorce esta tejido en el ADN de la marca como un elemento visual recurrente. Aparece como:</p>
+                        <ul>
+                            <li><strong>Marcadores de seccion</strong> — "01", "02", "03", "04" en Orbitron como watermarks gigantes de fondo</li>
+                            <li><strong>Favicon</strong> — "14" en rojo bold sobre fondo oscuro a 32x32</li>
+                            <li><strong>Elemento decorativo</strong> — "14" en tamano grande y baja opacidad detras del contenido</li>
+                            <li><strong>Shorthand de marca</strong> — "Catorce" = "14" en contextos hablados y escritos</li>
+                        </ul>
+                        <p>El motivo siempre debe ser sutil — nunca compitiendo con el contenido. Opacidad 0.03–0.08 para watermarks. Solo Orbitron 800.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DESIGN PRINCIPLES -->
+        <section class="brand-section">
+            <span class="brand-section__num">07</span>
+            <h2 class="brand-section__title">Principios de Diseno</h2>
+            <div class="brand-section__content">
+                <div class="principles-grid">
+                    <div class="principle">
+                        <span class="principle__num">I</span>
+                        <h3>Visuales Full-bleed</h3>
+                        <p>Cada seccion es una escena de viewport completo. Sin cards pequenas, sin grids de thumbnails. Cada scroll revela un nuevo mundo.</p>
+                    </div>
+                    <div class="principle">
+                        <span class="principle__num">II</span>
+                        <h3>Tipografia Oversized</h3>
+                        <p>Orbitron a 8–12vw para maximo impacto. El texto es arquitectura, no decoracion. Comanda el espacio.</p>
+                    </div>
+                    <div class="principle">
+                        <span class="principle__num">III</span>
+                        <h3>Rojo como Poder</h3>
+                        <p>No puntos de acento — momentos rojos dramaticos. Secciones completamente rojas, texto con glow, red overlays. Usado con moderacion para maximo impacto.</p>
+                    </div>
+                    <div class="principle">
+                        <span class="principle__num">IV</span>
+                        <h3>Espacio Negativo</h3>
+                        <p>Deja que la oscuridad respire. Premium es espacio. Resiste la urgencia de llenar — el vacio es el marco que hace precioso al contenido.</p>
+                    </div>
+                    <div class="principle">
+                        <span class="principle__num">V</span>
+                        <h3>ADN de Line Art</h3>
+                        <p>El estilo line-art ganadero de la marca se extiende mas alla del logo hacia divisores de seccion, elementos decorativos e iconografia.</p>
+                    </div>
+                    <div class="principle">
+                        <span class="principle__num">VI</span>
+                        <h3>Movimiento Cinematico</h3>
+                        <p>Cada transicion es intencional. Parallax, fade reveals, slide-ins — nunca instantaneo, nunca rebotante. El movimiento es lento, seguro, premium.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
