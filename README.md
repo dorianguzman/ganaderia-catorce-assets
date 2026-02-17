@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="logo-full-light.svg" alt="Ganaderia Catorce" width="360">
+  <img src="cow+pig.png" alt="Ganaderia Catorce" width="280">
 </p>
 
 <h1 align="center">Ganaderia Catorce — Brand Assets</h1>
