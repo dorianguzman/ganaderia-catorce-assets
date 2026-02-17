@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 400 320" width="400" height="320">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,300&amp;family=Orbitron:wght@800&amp;family=Inter:wght@400&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Ganaderia -->
+  <text x="200" y="42" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-weight="300" font-style="italic" font-size="20" fill="#F5F5F5" letter-spacing="7">Ganaderia</text>
+
+  <!-- Cow + Pig icon -->
+  <image href="cow+pig.png" x="75" y="55" width="250" height="150"/>
+
+  <!-- CATORCE -->
+  <text x="200" y="248" text-anchor="middle" font-family="'Orbitron', sans-serif" font-weight="800" font-size="48" fill="#F5F5F5" letter-spacing="5">CATORCE</text>
+
+  <!-- EST. 2024 -->
+  <text x="200" y="280" text-anchor="middle" font-family="'Inter', sans-serif" font-weight="400" font-size="12" fill="#F5F5F5" opacity="0.4" letter-spacing="4">EST. 2024</text>
+</svg>
